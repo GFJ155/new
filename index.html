@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IJewel3D Viewer</title>
+</head>
+<body>
+<div id="root"></div>
+<script src='https://releases.ijewel3d.com/libs/mini-viewer/0.1.2-dev.1/bundle.iife.js'></script>
+<script >
+  // set this to true during development to bypass CORS.
+  const baseName = 'gemsfromjaipur';
+
+  const basePath = "https://assets." + baseName + ".ijewel3d.com";
+   
+  ijewelViewer.initializeIJewel3DViewer({
+    basePath: basePath,
+    ijewelViewerOptions: {
+      showCard: true,
+      showLogo: true,
+    },
+  });
+
+  window.addEventListener('webgi-viewer-ready', async (ev)=>{
+    console.log("ready")
+    const viewer = ev.detail.viewer;
+
+  });
+
+</script>
+<style>
+  #root{
+    width: 100vw;
+    height: 100dvh;
+  }
+</style>
+
+</body>
+</html>
